@@ -6,7 +6,7 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-// my solution
+// My implementation
 // iterating from the last character to the first, adding them to a new string in that order
 function reverse(str) {
 
