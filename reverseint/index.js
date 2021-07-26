@@ -8,7 +8,7 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-// My solution: longwinded, but it works
+// My implementation: longwinded, but it works
 
 /*
  * If the integer is negative, we store its absolute value. Otherwise, it stays the same.
