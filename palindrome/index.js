@@ -8,7 +8,7 @@
 //   palindrome("abcdefg") === false
 
 
-// My solution
+// My implementation
 
 /* Checks first and last char for equality, and if equal, then it increments the first
  * and decrements the last. If at any point there isn't equality, it's not a palindrome.
