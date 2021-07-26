@@ -6,4 +6,6 @@ In this case, I specify wherever implementations are my own or are the ones prov
 
 In some cases, having both present provides a useful reference for comparison, as sometimes I opt for more of a Java-style implementation (much less compact, lack of method changing, old-school for loops, etc.).
 
+I've also included the test files provided by the Grider. The Jest testing framework is used for this course.
+
 I'll continue adding to this as I work on more problems.
