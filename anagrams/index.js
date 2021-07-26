@@ -9,7 +9,7 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 
-// My solution, returns true if it's an anagram, false otherwise
+// My implementation, returns true if it's an anagram, false otherwise
 // This is the one case where I actually prefer my implementation to the instructor's
 function anagrams(stringA, stringB) {
 
