@@ -1,0 +1,66 @@
+---------------------------------------------------------------------------------------------------------------
+
+*** Runtime Complexity ***
+
+// A mixture of my notes along with the notes from Grider's course
+
+- A way to describe how performant an algorithm is
+- The amount of processing power/time required to run the algorithm given certain conditions
+- Notes to follow provide a very simple, high-level overview of the notation and some problems (not in-depth)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+*** Big O ***
+
+Overview:
+
+Constant time		- O(1):		clearly best - the algorithm will always take the same amount of time regardness of the no of elements
+Logarithmic time	- O(logn):	logarithm of the input size, usually quickly outperforms n as input size grows: often search algos are O(logn)
+Linear time		- O(n):		common: if you iterate a collection of data from 0 to n, then it's clearly linear
+Quasilinear time	- O(nlogn):	a factor of n times slower than logn - tends to be somewhat slower than O(n): sorting algos are often O(nlogn)
+Quadratic time		- O(n^2):	the time complexity here ends up being n * n; common with loops iterating normally for two iterators
+Exponential time	- O(2^n):	obviously worst (practically) - for each element added, double the work has to be done	
+
+Some general rules:
+
+// as I recall, we generally consider the big-O notation in terms of the worst case, which is why we have something like O(m + n)
+// simply being referred to as O(n), as it is still linear, and likewise for O(n*m) as simply O(n^2), as it is still quadratic
+
+Linear time		- O(n):			iterating with a simple for a loop through a single collection
+Linear time		- O(n):			iterating through half of a collection (no constants in runtime)
+Linear time:		- O(n + m): --> O(n):	two separate individual for loops
+Quadratic time:		- O(n^2):		two *nested* for loops iterating over the *same* collection
+Quadratic time:		- O(n*m): --> O(n^2):	two *nested* for loops iterating over *different* collections
+Quasilinear time:	- O(nlog(n)):		sorting algorithms, generally
+Logarithmic time:	- O(log(n)):		searching in a *sorted* array
+
+
+---------------------------------------------------------------------------------------------------------------
+
+*** Space Complexity ***
+
+- Asking how much memory/space an algorithm needs given the specific problem (set)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+*** Examples *** 
+
+The reverse(str) problem:
+
+- Linear runtime - O(n)
+- Each additional character = 1 step through the single loop (instructor implementation)
+
+The steps() problem, again, relatively simple:
+
+- Quadratic runtime - O(n^2)
+- Has a nested loop, i.e. n * n (in this case), hence quadratic
+
+The pyramid() problem:
+
+- Quadratic runtime - O(n^2)
+- Has a nested loop, i.e. n * n (in this case), hence quadratic
+
+
+---------------------------------------------------------------------------------------------------------------
