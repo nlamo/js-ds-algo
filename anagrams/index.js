@@ -9,7 +9,7 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 
-// My implementation, returns true if it's an anagram, false otherwise
+// My solution, returns true if it's an anagram, false otherwise
 // This is the one case where I actually prefer my implementation to the instructor's
 function anagrams(stringA, stringB) {
 
@@ -17,18 +17,12 @@ function anagrams(stringA, stringB) {
     stringA = stringA.replace(/[^\w]/g, "").toLowerCase();
     stringB = stringB.replace(/[^\w]/g, "").toLowerCase();
 
-    console.log(stringA);
-    console.log(stringB);
-
     // splits each string into arrays, sorts arrays, converts back to strings
     stringA = stringA.split('').sort().toString();
     stringB = stringB.split('').sort().toString();
 
-    console.log(stringA);
-    console.log(stringB);
-
-    // simply tests whther one string includes the other string (which is effectively identity, as they are sorted)
-    let returnValue = stringA.includes(stringB) && stringB.includes(stringA);
+    // checks for equality
+    let returnValue = stringA === stringB;
 
     return returnValue;
 }
