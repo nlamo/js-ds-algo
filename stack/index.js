@@ -10,22 +10,41 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
+// My implementation (instructor implementation was exactly the same)
 class Stack {
-  constructor() {
-    this.data = [];
-  }
 
-  push(record) {
-    this.data.push(record);
-  }
+    constructor() {
+        this.stackArray = []
+    }
 
-  pop() {
-    return this.data.pop();
-  }
+    push(element) {
+        this.stackArray.push(element);
+    }
 
-  peek() {
-    return this.data[this.data.length - 1];
-  }
+    pop() {
+        return this.stackArray.pop();
+    }
+
+    peek() {
+        return this.stackArray[this.stackArray.length - 1];
+    }
 }
+
+// Testing it
+const newStack = new Stack();
+
+newStack.push(2);
+newStack.push(5);
+newStack.push(7);
+newStack.push(9);
+
+console.log(newStack);
+
+newStack.pop();
+newStack.pop();
+
+console.log(newStack);
+
+console.log("First element inserted " + newStack.peek());
 
 module.exports = Stack;
