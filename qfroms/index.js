@@ -64,35 +64,6 @@ class Queue {
     }
 }
 
-// My first failed implementation (incomplete)
-// I was trying to think of how two stacks would *map* to make a queue, using only methods provided
-class failedQueue {
-     
-    constructor() {
-        this.valueStack = new Stack()
-        this.orderStack = new Stack()
-    }
-
-    // Add element to valueStack, add order of element to orderStack
-    add(element) {
-
-        this.valueStack.push(element)
-
-        if (this.orderStack.peek() == undefined) {
-            this.orderStack.push(1)
-        } 
-        else {
-            let orderStackCurrent = this.orderStack.peek();
-            this.orderStack.push(orderStackCurrent + 1)
-        }
-    }
-
-    // Remove element from valueStack, change order
-    remove() {
-
-    }
-}
-
 // Testing it
 const queueFromStack = new Queue()
 queueFromStack.add(1)
