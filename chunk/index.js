@@ -13,24 +13,20 @@ function chunk(array, size) {
 
     let chunkArray = []; // array of chunks
     
-    for (let i = 0, j = size; i < array.length; )
-    {
+    for (let i = 0, j = size; i < array.length; ) {
         // for each loop, a new chunk array is made (starts at 0)
         let element = 0;
         let chunk = [];
 
         // build the chunk
-        while (i != j)
-        {
+        while (i != j) {
             chunk[element] = array[i];
-
             ++element;
             ++i;
         }
 
         // filter array if it has any empty elements
-        if (chunk.includes(undefined))
-        {
+        if (chunk.includes(undefined)) {
             chunk = chunk.filter(function (element) {
                 return element != undefined;
             })
@@ -40,8 +36,7 @@ function chunk(array, size) {
         chunkArray.push(chunk) 
         
         // new starting point for size
-        if (j < array.length)
-        {
+        if (j < array.length) {
             j = j + size;
         }
     }
@@ -54,18 +49,16 @@ function chunkAlt(array, size) {
     const chunkArray = [];
 
     // for each loop, elements are being added one at a time
-    for (let element of array)
-    {
+    for (let element of array) {
+        
         const chunk = chunkArray[chunkArray.length - 1];
 
         console.log(chunk)
 
-        if (!chunk || chunk.length === size)
-        {
+        if (!chunk || chunk.length === size) {
             chunkArray.push([element]); // new chunk
         }
-        else 
-        {
+        else {
             chunk.push(element);
         }
     }
@@ -80,8 +73,7 @@ function chunkAltSecond(array, size) {
     let chunk = []
     let index = 0; 
 
-    while (index < array.length)
-    {
+    while (index < array.length) {
         chunk = array.slice(index, index + size);
         chunkArray.push(chunk)
         index = index + size;

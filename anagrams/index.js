@@ -37,16 +37,14 @@ function anagramsAlt(stringA, stringB) {
     const bCharMap = buildCharMap(stringB);
 
     // we know that they aren't anagrams if the number of keys is not equivalent
-    if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length)
-    {
+    if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
         return false;
     }
 
     // we know that they aren't anagrams if one char doesn't have the same number of keys as another
-    for (let char in aCharMap)
-    {
-        if (aCharMap[char] !== bCharMap[char])
-        {
+    for (let char in aCharMap) {
+
+        if (aCharMap[char] !== bCharMap[char]) {
             return false;
         }
     }
@@ -59,8 +57,7 @@ function buildCharMap(str) {
     const charMap = {}
     
     // ugly as heck
-    for (let char of str.replace(/[^\w]/g, '').toLowerCase())
-    {
+    for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
         // increments charMap[char] by one (if it already exists) OR creates new charMap[char] and sets to 1
         charMap[char] = charMap[char] + 1 || 1; 
     }

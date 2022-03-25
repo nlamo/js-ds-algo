@@ -64,6 +64,58 @@ class Queue {
     }
 }
 
+// My first failed implementation (incomplete)
+// I was trying to think of how two stacks would *map* to make a queue, using only methods provided
+class failedQueue {
+     
+    constructor() {
+        this.valueStack = new Stack()
+        this.orderStack = new Stack()
+    }
+
+    // Add element to valueStack, add order of element to orderStack
+    add(element) {
+
+        this.valueStack.push(element)
+
+        if (this.orderStack.peek() == undefined) {
+            this.orderStack.push(1)
+        } 
+        else {
+            let orderStackCurrent = this.orderStack.peek();
+            this.orderStack.push(orderStackCurrent + 1)
+        }
+    }
+
+    // If we want to remove, we have to pop each item from stackA over into stackB,
+    // which essentially queue-ifies stackB. As such, once we have done this, popping
+    // from stackB gives us the first element inserted. 
+    remove() {
+        while (this.stackA.peek() != undefined) {
+            this.stackB.push(this.stackA.pop())
+        }
+
+        return this.stackB.pop()
+    }
+
+    // Same idea. If stackB already has values, then it's queue-ified, and so calling peek() from
+    // it will give us the first in the queue. However, if stackA has values, then we need to pop
+    // them over to stackB such we can properly 'peek' at the first value.
+    peek() {
+        if (this.stackB.peek() != undefined) {
+            return this.stackB.peek()
+        }
+        else {
+
+            while (this.stackA.peek() != undefined) {
+                this.stackB.push(this.stackA.pop())
+            }
+
+            return this.stackB.peek()
+        }
+    }
+}
+
 // Testing it
 const queueFromStack = new Queue()
 queueFromStack.add(1)

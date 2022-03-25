@@ -23,18 +23,16 @@
 // But Grider provides a solution that is essentially identical
 function steps(n) {
 
-    for (let i = 0; i < n; ++i)
-    {
+    for (let i = 0; i < n; ++i) {
+
         let outputString = '';
 
-        for (let j = 0; j < n; ++j)
-        {
-            if (j <= i)
-            {
+        for (let j = 0; j < n; ++j) {
+
+            if (j <= i) {
                 outputString += '#';
             }
-            else 
-            {
+            else {
                 outputString += ' ';
             }
         }
@@ -50,24 +48,20 @@ function steps(n) {
 function recursiveSteps(n, row = 0, outputString = '') 
 {
     // base case
-    if (n === row)
-    {
+    if (n === row) {
         return;
     }
 
     // will output
-    if (n === outputString.length)
-    {
+    if (n === outputString.length) {
         console.log(outputString);
         return recursiveSteps(n, row + 1); // outputString remains as default '', as each call must make a new string
     }
 
-    if (outputString.length <= row)
-    {
+    if (outputString.length <= row) {
         outputString += '#';
     }
-    else 
-    {
+    else {
         outputString += ' ';
     }
 

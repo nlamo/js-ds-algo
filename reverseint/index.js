@@ -8,7 +8,7 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-// My implementation: longwinded, but it works
+// My solution: longwinded, but it works
 
 /*
  * If the integer is negative, we store its absolute value. Otherwise, it stays the same.
@@ -28,33 +28,27 @@ function reverseInt(n) {
 
     let returnInt = 0;
 
-    if (n < 0)
-    {
+    if (n < 0) {
         returnInt = Math.abs(n);
     }
-    else
-    {
+    else {
         returnInt = n;
     }
 
     let intString = returnInt.toString();
     let reversedString = "";
 
-
-    for (let i = intString.length - 1; i >= 0; --i)
-    {
+    for (let i = intString.length - 1; i >= 0; --i) {
         reversedString += intString[i];
     }
 
     returnInt = parseInt(reversedString)
 
-    if (n < 0)
-    {
+    if (n < 0) {
         returnInt = -returnInt;
     }
 
     return returnInt;
-
 }
 
 module.exports = reverseInt;

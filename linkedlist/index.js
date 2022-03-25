@@ -10,14 +10,47 @@ class Node {
    }
 }
 
+// Linked list with various methods
 class LinkedList {
    constructor() {
       this.head = null;
    }
 
    insertFirst(data) {
-      const n = new Node(data, this.head);
-      this.head = n;
+      const node = new Node(data, this.head);
+      this.head = node;
+   }
+
+   size() {
+      let node = this.head;
+      let count = 0;
+
+      while (node) {
+         count++;
+         node = node.next;
+      }
+
+      return count;
+   }
+
+   getFirst() {
+      return this.head;
+   }
+
+   getLast() {
+      if (!this.head) {
+         return null;
+      }
+
+      let node = this.head;
+
+      while (node) {
+         if (node.next == null) {
+            return node;
+         }
+
+         node = node.next;
+      }
    }
 }
 

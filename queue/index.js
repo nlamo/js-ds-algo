@@ -76,26 +76,26 @@ class Queue {
 class queueAlt {
 
     constructor() {
-        this.data = [];
+        this.data = []
     }
 
     add(record) {
-        this.data.unshift(record);
+        this.data.unshift(record)
     }
 
-    record() {
-        return this.data.pop();
+    remove() {
+        return this.data.pop()
     }
 }
 
 // Testing it
-const newQueue = new Queue();
+const newQueue = new Queue()
 
-newQueue.add(1);
+newQueue.add(1)
 console.log(newQueue)
-newQueue.add(2);
+newQueue.add(2)
 console.log(newQueue)
-newQueue.add(3);
+newQueue.add(3)
 console.log(newQueue)
 
 newQueue.remove()

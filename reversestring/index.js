@@ -6,14 +6,13 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-// My implementation
+// my solution
 // iterating from the last character to the first, adding them to a new string in that order
 function reverse(str) {
 
     let newString = ""
 
-    for (let i = str.length - 1; i >= 0; --i)
-    {
+    for (let i = str.length - 1; i >= 0; --i) {
         newString += str[i]
     }
 

@@ -15,23 +15,21 @@
 //       '#####'
 
 // Pretty sure this is the instructor implementation, but slightly modified (for conciseness)
-function pyramid(n) 
-{
+function pyramid(n) {
+    
     let end = 2 * n - 1;
     let midpoint = Math.floor(end / 2);
 
-    for (let row = 0; row < n; ++row)
-    {
+    for (let row = 0; row < n; ++row) {
+
         let level = ''; // output string for each level in pyramid
 
-        for (let column = 0; column < end; ++column)
-        {
-            if ( (midpoint - row <= column) && (midpoint + row >= column) )
-            {
+        for (let column = 0; column < end; ++column) {
+
+            if ( (midpoint - row <= column) && (midpoint + row >= column) ) {
                 level += '#';
             }
-            else 
-            {
+            else {
                 level += ' ';
             }
         }
@@ -42,15 +40,13 @@ function pyramid(n)
 
 // Instructor implementation: recursive!
 // As with the steps version, this will be very useful to review.
-function recursivePyramid(n, row = 0, level = '') 
-{
-    if (n === row)
-    {
+function recursivePyramid(n, row = 0, level = '') {
+
+    if (n === row) {
         return;
     }
 
-    if (level.length === (2 * n - 1 ) )
-    {
+    if (level.length === (2 * n - 1 ) ) {
         console.log(level);
         return recursivePyramid(n, row + 1);
     }
@@ -59,12 +55,10 @@ function recursivePyramid(n, row = 0, level = '')
     let midpoint = Math.floor(end / 2);
     let add; // contain character that we're supposed to add to level string
 
-    if (midpoint - row <= level.length && midpoint + row >= level.length)
-    {
+    if (midpoint - row <= level.length && midpoint + row >= level.length) {
         add = '#';
     }
-    else
-    {
+    else {
         add = ' ';
     }
 

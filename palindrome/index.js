@@ -8,7 +8,7 @@
 //   palindrome("abcdefg") === false
 
 
-// My implementation
+// My solution
 
 /* Checks first and last char for equality, and if equal, then it increments the first
  * and decrements the last. If at any point there isn't equality, it's not a palindrome.
@@ -18,10 +18,9 @@
 
 function palindrome(str) {
 
-    for (let i = 0, j = str.length - 1; i <= j; ++i, --j)
-    {
-        if (str[i] != str[j])
-        {
+    for (let i = 0, j = str.length - 1; i <= j; ++i, --j) {
+
+        if (str[i] != str[j]) {
             return false;
         }
     }

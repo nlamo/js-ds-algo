@@ -14,10 +14,8 @@ function vowels(str) {
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     let newString = str.toLowerCase();
  
-    for (let char of newString)
-    {
-        if (vowels.includes(char))
-        {
+    for (let char of newString) {
+        if (vowels.includes(char)) {
             ++vowelCount;
         }
     }
