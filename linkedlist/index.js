@@ -205,6 +205,88 @@ class LinkedList {
          node = node.next;
       }
    }
+
+   // Grider's implementation
+   removeAtAlt(index) {
+      if (!this.head) {
+         return;
+      }
+
+      if (index === 0) {
+         this.head = this.head.next;
+         return;
+      }
+
+      const previous = this.getAt(index - 1);
+
+      if (!previous || !previous.next) {
+         return;
+      }
+
+      previous.next = previous.next.next;
+   }
+
+   // 1) if there's no head, then it adds the node as this.head
+   // 2) if index is 0, then nodeToAdd.next will reference the head, and then the head will be reset as 
+   //    nodeToAdd 
+   // 3) if the index is out of bounds, call this.getLast and then make this element's 'next' reference set
+   //    to nodeToAdd
+   // 4) the main algorithm: iterate over list, and if the current node's 'next' reference is the nodeToOffet 
+   //    (the node whose position will be replaced), set current.next to nodeToAdd and the nodeToAdd.next to nodeToOffset
+   insertAt(data, index) {
+      let length = this.size();
+      let current = this.head;
+      let nodeToAdd = new Node(data);
+      let nodeToOffset = this.getAt(index);
+
+      if (!this.head) {
+         this.head = nodeToAdd;
+         return;  
+      }
+
+      if (index === 0) {
+         nodeToAdd.next = this.head;
+         this.head = nodeToAdd;
+         return;
+      }
+
+      if (index >= length) {
+         const lastNode = this.getLast();
+         lastNode.next = nodeToAdd;
+         return;
+      }
+
+      while (current) {
+         if (current.next === nodeToOffset) {
+            current.next = nodeToAdd;
+            nodeToAdd.next = nodeToOffset;
+            return;
+         }
+
+         current = current.next;
+      }
+   }
+
+   // Grider's implementation
+   insertAt(data, index) {
+      if (!this.head) {
+         this.head = new Node(data);
+         return;
+      }
+
+      if (index === 0) {
+         this.head = new Node(data, this.head);
+         return;
+      }
+
+      // clever:  this.getLast() accounts for the case wherein the operand this.getAt(index - 1) fails, which
+      //          will cover the case where a node is inserted into an index out of bands and automatically tack it
+      //          on at the end of the list
+
+      const previous = this.getAt(index - 1) || this.getLast();
+      const node = new Node(data, previous.next);
+      previous.next = node;
+   }
 }
 
 // ----------------------------------------------------------
