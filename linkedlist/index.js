@@ -70,10 +70,11 @@ class LinkedList {
       // cleaner solution from Grider: this.head = this.head.next (one line of code vs three)
    }
 
-   // 1) if empty, return
-   // 2) if this.head.next doesn't exist, then there's only one node, which we set to null
-   // 3) if we have more than two nodes, get the last node, and iterate until node.next is equal to the last node,
-   //    then simply set node.next to null (which rids of the last node)
+  /* 1) if empty, return
+   * 2) if this.head.next doesn't exist, then there's only one node, which we set to null
+   * 3) if we have more than two nodes, get the last node, and iterate until node.next is equal to the last node,
+   *    then simply set node.next to null (which rids of the last node)
+   */ 
    removeLast() {
       if (!this.head) {
          return;
@@ -97,9 +98,10 @@ class LinkedList {
       }
    }
    
-   // my solution for removeLast() is quite distinct from Grider's solution below:
-   // he iterates through the list while there exists a node.next, using 'node' and 'previous' pointers for nodes;
-   // once arriving at the end, he then sets previous.next to null -- perfectly good solution
+  /* my solution for removeLast() is quite distinct from Grider's solution below:
+   * he iterates through the list while there exists a node.next, using 'node' and 'previous' pointers for nodes;
+   * once arriving at the end, he then sets previous.next to null -- perfectly good solution
+   */ 
    removeLastAlt() {
       if (!this.head) {
          return;
@@ -164,15 +166,16 @@ class LinkedList {
       return null;
    }
    
-   // 1) if there's no head, the list is empty, simply return
-   // 2) if there's a head but no second node, and if index is 0, then we set the head to null and return;
-   //    otherwise we simply return
-   // 3) if there's a head and a second node, and if index is 0, then we set head to head.next, but we 
-   //    do not return, as based on the first conditional, execution may need to proceed
-   // 4) the main algorithm: we have the main node (this.head), we have the node to be removed (this.getAt(index));
-   //    we iterate over each node, and if node.next is equal to nodeToRemove, then we set node.next to be 
-   //    nodeToRemove.next
-   //       * the 'next' reference of the node *before* nodeToRemove is changed to the node *after* nodeToRemove
+  /* 1) if there's no head, the list is empty, simply return
+   * 2) if there's a head but no second node, and if index is 0, then we set the head to null and return;
+   *    otherwise we simply return
+   * 3) if there's a head and a second node, and if index is 0, then we set head to head.next, but we 
+   *    do not return, as based on the first conditional, execution may need to proceed
+   * 4) the main algorithm: we have the main node (this.head), we have the node to be removed (this.getAt(index));
+   *    we iterate over each node, and if node.next is equal to nodeToRemove, then we set node.next to be 
+   *    nodeToRemove.next\
+   *      - the 'next' reference of the node *before* nodeToRemove is changed to the node *after* nodeToRemove
+   */      
    removeAt(index) {
       if (!this.head) {
          return;
@@ -226,13 +229,14 @@ class LinkedList {
       previous.next = previous.next.next;
    }
 
-   // 1) if there's no head, then it adds the node as this.head
-   // 2) if index is 0, then nodeToAdd.next will reference the head, and then the head will be reset as 
-   //    nodeToAdd 
-   // 3) if the index is out of bounds, call this.getLast and then make this element's 'next' reference set
-   //    to nodeToAdd
-   // 4) the main algorithm: iterate over list, and if the current node's 'next' reference is the nodeToOffet 
-   //    (the node whose position will be replaced), set current.next to nodeToAdd and the nodeToAdd.next to nodeToOffset
+  /* 1) if there's no head, then it adds the node as this.head
+   * 2) if index is 0, then nodeToAdd.next will reference the head, and then the head will be reset as 
+   *    nodeToAdd 
+   * 3) if the index is out of bounds, call this.getLast and then make this element's 'next' reference set
+   *    to nodeToAdd
+   * 4) the main algorithm: iterate over list, and if the current node's 'next' reference is the nodeToOffet 
+   *    (the node whose position will be replaced), set current.next to nodeToAdd and the nodeToAdd.next to nodeToOffset
+   */    
    insertAt(data, index) {
       let length = this.size();
       let current = this.head;
@@ -286,6 +290,22 @@ class LinkedList {
       const previous = this.getAt(index - 1) || this.getLast();
       const node = new Node(data, previous.next);
       previous.next = node;
+   }
+
+  /* Grider's implementation:
+   * Define your function (args: node, counter) and it will start the node at 
+   * this.head (beginning) and the counter at 0... then, while a node still exists, call
+   * the passed function, set the node to node.next, increment the counter, continue.
+   */ 
+   forEach(func) {
+      let node = this.head;
+      let counter = 0;
+
+      while (node) {
+         func(node, counter);
+         node = node.next;
+         counter++;
+      }
    }
 }
 
