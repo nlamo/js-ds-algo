@@ -21,6 +21,7 @@ function fibLinear(n) {
 
    return result[n];
 }
+
 /*
  * A way to think about this, simplified, in language, without a visual recursion tree...
  * 
