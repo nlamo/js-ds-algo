@@ -51,4 +51,29 @@ function reverseInt(n) {
     return returnInt;
 }
 
+// My solution: alternative, a bit more concise
+function reverseIntAlt(n) {
+
+    let intString = '';
+
+    if (n < 0)
+        intString = (Math.abs(n)).toString();
+    else
+        intString = n.toString();
+
+    let reversedNum = parseInt(intString.split('').reverse().join(''));
+
+    if (n < 0)
+        return -reversedNum;
+    else 
+        return reversedNum;
+}
+
+// Grider's solution
+function reverseIntAltSecond(n) {
+    const reversed = n.toString().split('').reverse().join('');
+
+    return parseInt(reversed) * Math.sign(n);
+}
+
 module.exports = reverseInt;

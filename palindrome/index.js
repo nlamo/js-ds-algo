@@ -7,7 +7,6 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-
 // My solution
 
 /* Checks first and last char for equality, and if equal, then it increments the first
@@ -17,15 +16,21 @@
  */
 
 function palindrome(str) {
+    
+   for (let i = 0, j = str.length - 1; i <= j; ++i, --j) {
+      if (str[i] != str[j]) {
+         return false;
+      }
+   }
 
-    for (let i = 0, j = str.length - 1; i <= j; ++i, --j) {
+   return true;
+}
 
-        if (str[i] != str[j]) {
-            return false;
-        }
-    }
+// Grider's solution
+function palindromeAlt(str) {
+    const reversed = str.split('').reverse().join('');
 
-    return;
+    return str === reversed;
 }
 
 module.exports = palindrome;

@@ -12,8 +12,8 @@
 // My solution, returns true if it's an anagram, false otherwise
 // This is the one case where I actually prefer my implementation to the instructor's
 function anagrams(stringA, stringB) {
-
-    // regex here gets only the lowercase word from the string in each case
+    
+    // regex replaces all non-alphanumeric chars with ""; string is made lowercase
     stringA = stringA.replace(/[^\w]/g, "").toLowerCase();
     stringB = stringB.replace(/[^\w]/g, "").toLowerCase();
 
@@ -21,14 +21,9 @@ function anagrams(stringA, stringB) {
     stringA = stringA.split('').sort().toString();
     stringB = stringB.split('').sort().toString();
 
-    // checks for equality
-    let returnValue = stringA === stringB;
-
-    return returnValue;
+    // checks for equality and returns it
+    return stringA === stringB;
 }
-
-// ^^^ FUNCTION TEST ^^^
-// console.log(anagrams('Rail safety! Hello!', 'O, Hell! FAIRY TALES!'));
 
 // Instructor implementation
 function anagramsAlt(stringA, stringB) {
@@ -56,7 +51,6 @@ function anagramsAlt(stringA, stringB) {
 function buildCharMap(str) {
     const charMap = {}
     
-    // ugly as heck
     for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
         // increments charMap[char] by one (if it already exists) OR creates new charMap[char] and sets to 1
         charMap[char] = charMap[char] + 1 || 1; 
